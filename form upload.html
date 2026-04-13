@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmer Upload | TerraBloom Global</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="navbar">
+        <a class="brand" href="index.html"><span class="logo-mark">🌿</span>TerraBloom Global</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="form upload.html">Farmer Upload</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="grid-section">
+      <h2>Farmer Upload Form</h2>
+      <p>
+        Tell the TerraBloom community about your current harvest. Upload your produce photo, describe the type, share how much is available, and set prices both per kilogram and per bundle.
+      </p>
+      <div class="card">
+        <img class="section-image" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" alt="Farmer preparing fresh produce for upload" />
+        <form action="#" method="post" enctype="multipart/form-data">
+          <label for="farm-name">Farm name</label>
+          <input type="text" id="farm-name" name="farm-name" placeholder="e.g. Sunrise Orchard" required />
+
+          <label for="produce-type">Produce type</label>
+          <input type="text" id="produce-type" name="produce-type" placeholder="e.g. Avocado, Chillies, Cassava" required />
+
+          <label for="quantity">Quantity available</label>
+          <input type="text" id="quantity" name="quantity" placeholder="e.g. 80 kg, 12 bundles" required />
+
+          <label for="price-kg">Price per kg</label>
+          <input type="text" id="price-kg" name="price-kg" placeholder="e.g. 250 KES" required />
+
+          <label for="price-bundle">Price per bundle</label>
+          <input type="text" id="price-bundle" name="price-bundle" placeholder="e.g. 1,200 KES" required />
+
+          <label for="produce-photo">Produce photo</label>
+          <input type="file" id="produce-photo" name="produce-photo" accept="image/*" />
+
+          <label for="notes">Harvest notes</label>
+          <textarea id="notes" name="notes" placeholder="Tell buyers about your growing methods, expected delivery windows, or special offers"></textarea>
+
+          <p class="form-note">
+            Uploads are saved to the TerraBloom marketplace and will help consumers find your produce faster.
+          </p>
+
+          <div class="submit-row">
+            <button class="btn btn-primary" type="submit">Submit listing</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <p><strong>TerraBloom Global</strong></p>
+          <p>Share your harvest and join the delivery story.</p>
+        </div>
+        <div>
+          <p><a href="index.html">Home</a> · <a href="form upload.html">Farmer Upload</a> · <a href="contact.html">Contact</a></p>
+          <p>&copy; 2026 TerraBloom Global</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
