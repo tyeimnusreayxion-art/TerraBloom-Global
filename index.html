@@ -119,104 +119,7 @@
         </div>
       </section>
 
-      <section id="consumers" class="grid-section">
-        <h2>Consumers</h2>
-        <p>
-          Consumers browse vibrant produce directly from farmers, choose the best combination, and connect with teams who handle logistics transparently.
-        </p>
-        <div class="section-cards">
-          <article class="section-card">
-            <h3>Shop with clarity</h3>
-            <ul class="produce-list">
-              <li>Tomatoes — 20kg available — KES 280/kg or KES 1,500/bundle</li>
-              <li>Mangoes — 35kg available — KES 450/kg or KES 2,500/bundle</li>
-              <li>Leafy greens — 50kg available — KES 180/kg or KES 1,000/bundle</li>
-            </ul>
-          </article>
-          <article class="section-card">
-            <h3>Support local growers</h3>
-            <p>Every order contributes to fair farmer pay and stronger rural communities.</p>
-          </article>
-          <article class="section-card">
-            <h3>Freshness guarantee</h3>
-            <p>Picked with care, matched to demand, and delivered through trusted logistics partners.</p>
-          </article>
-        </div>
-        <div class="consumer-details">
-          <div class="section-card">
-            <h3>Order your produce</h3>
-            <ul class="order-list">
-              <li>Browse farm listings by produce type, quantity, and price.</li>
-              <li>Choose your preferred item per kilogram or per bundle.</li>
-              <li>Enter your contact details and delivery address.</li>
-              <li>Confirm your order, and receive a live update from our logistics team.</li>
-            </ul>
-          </div>
-          <div class="section-card">
-            <h3>Contact for orders</h3>
-            <p>Our consumer support team helps make every order easy.</p>
-            <p><strong>Email:</strong> orders@terrabloom.global</p>
-            <p><strong>Phone:</strong> +254 700 555 148</p>
-            <p><strong>WhatsApp:</strong> +254 700 555 199</p>
-          </div>
-        </div>
-        <div class="consumer-order-grid">
-          <article class="order-card">
-            <h3>Flexible ordering interface</h3>
-            <form>
-              <label for="order-produce">Produce</label>
-              <select id="order-produce" name="order-produce">
-                <option>Tomatoes</option>
-                <option>Mangoes</option>
-                <option>Leafy greens</option>
-                <option>Avocados</option>
-                <option>Fresh herbs</option>
-              </select>
-
-              <label for="order-quantity">Quantity needed</label>
-              <input type="text" id="order-quantity" name="order-quantity" placeholder="e.g. 25 kg or 5 bundles" />
-
-              <label for="order-price">Price preference</label>
-              <select id="order-price" name="order-price">
-                <option>Price per kg</option>
-                <option>Price per bundle</option>
-                <option>Best available offer</option>
-              </select>
-
-              <label for="transport-method">Preferred transport</label>
-              <select id="transport-method" name="transport-method">
-                <option>Motorbike express delivery</option>
-                <option>Small cargo van</option>
-                <option>Medium truck</option>
-                <option>Refrigerated truck</option>
-              </select>
-
-              <label for="consumer-name">Your name</label>
-              <input type="text" id="consumer-name" name="consumer-name" placeholder="Full name" />
-
-              <label for="consumer-phone">Contact phone</label>
-              <input type="text" id="consumer-phone" name="consumer-phone" placeholder="e.g. +254 700 123 456" />
-
-              <label for="consumer-location">Delivery location</label>
-              <input type="text" id="consumer-location" name="consumer-location" placeholder="e.g. Nairobi, Mombasa, Kisumu" />
-
-              <div class="submit-row">
-                <button class="btn btn-primary" type="submit">Place order</button>
-              </div>
-            </form>
-          </article>
-          <article class="order-info-card">
-            <h3>Order smart</h3>
-            <p>Pick your produce, choose your transport, and confirm contact details. This interface keeps ordering fast and flexible for Kenyan consumers.</p>
-            <ul class="order-list">
-              <li>Choose from fresh farm produce from Taveta and the coast.</li>
-              <li>Set the delivery style: per kg, per bundle, or best available.</li>
-              <li>Select the most suitable transport option for your order.</li>
-              <li>Get a confirmation and tracking update from the TerraBloom logistics team.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+   
 
       <section id="transport" class="grid-section">
         <h2>Logistics</h2>
@@ -247,8 +150,8 @@
             <h3>Logistics contacts</h3>
             <p>For shipment planning and fleet support:</p>
             <p><strong>Email:</strong> logistics@terrabloom.global</p>
-            <p><strong>Phone:</strong> +254 700 555 230</p>
-            <p><strong>Dispatch:</strong> +254 700 555 275</p>
+            <p><strong>Phone:</strong> +254 717 709 091</p>
+            <p><strong>Dispatch:</strong> +254 735 408 867</p>
           </article>
         </div>
         <div class="transport-network-grid">
@@ -279,6 +182,38 @@
           </p>
         </div>
       </section>
+
+      <section id="consumers" class="grid-section">
+        <h2>Consumer order request</h2>
+        <p>
+          Fill in what you want, how much you need, and choose the vehicle best suited to carry your order. Our logistics team will follow up to confirm delivery.
+        </p>
+        <div class="contact-card card">
+          <form action="#" method="post">
+            <label for="consumer-item">Order item</label>
+            <input type="text" id="consumer-item" name="consumer-item" placeholder="What goods do you need?" required />
+
+            <label for="consumer-quantity">Quantity needed</label>
+            <input type="text" id="consumer-quantity" name="consumer-quantity" placeholder="e.g. 50 kg, 20 crates, 10 bundles" required />
+
+            <label for="consumer-vehicle">Vehicle needed</label>
+            <select id="consumer-vehicle" name="consumer-vehicle">
+              <option>Motorbike express delivery</option>
+              <option>Small cargo van</option>
+              <option>Medium truck</option>
+              <option>Large flatbed truck</option>
+              <option>Refrigerated truck</option>
+            </select>
+
+            <label for="consumer-details">Additional details</label>
+            <textarea id="consumer-details" name="consumer-details" placeholder="Special handling, delivery location, or timing preferences"></textarea>
+
+            <div class="submit-row">
+              <button class="btn btn-primary" type="submit">Submit request</button>
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -288,7 +223,7 @@
           <p>Connecting fields, families, and tables.</p>
         </div>
         <div>
-          <p><a href="index.html">Home</a> · <a href="form upload.html">Farmer Upload</a> · <a href="contact.html">Contact</a></p>
+          <p><a href="index.html">Home</a> · <a href="form upload.html">Farmer Upload</a> · <a href="contact.html">Contact</a> ·
           <p>&copy; 2026 TerraBloom Global</p>
         </div>
       </div>
