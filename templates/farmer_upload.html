@@ -3,11 +3,9 @@
 {% block content %}
 <section class="grid-section">
   <h2>Farmer Upload Form</h2>
-  <p>
-    Tell the TerraBloom community about your current harvest. Upload your produce photo, describe the type, share how much is available, and set prices both per kilogram and per bundle.
-  </p>
+  <p>Share your current harvest with buyers. Add a photo so consumers know exactly what they are ordering.</p>
   <div class="card">
-    <form method="post" novalidate>
+    <form method="post" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
       {{ form.as_p }}
       <div class="submit-row">
@@ -19,4 +17,22 @@
     </form>
   </div>
 </section>
+
+{% if recent_listings %}
+<section class="grid-section">
+  <h2>Recent Listings</h2>
+  <div class="listings-grid">
+    {% for listing in recent_listings %}
+    <div class="card listing-card">
+      {% if listing.image %}
+      <img src="{{ listing.image.url }}" alt="{{ listing.produce_type }}" class="produce-img" />
+      {% endif %}
+      <h3>{{ listing.produce_type }}</h3>
+      <p class="farm-name">🌾 {{ listing.farm_name }}</p>
+      <p>Qty: {{ listing.quantity }} &nbsp;|&nbsp; KES {{ listing.price_kg }}/kg</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 {% endblock %}

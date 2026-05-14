@@ -1,12 +1,11 @@
 from django import forms
-
 from .models import ConsumerOrder, FarmerListing
 
 
 class FarmerListingForm(forms.ModelForm):
     class Meta:
         model = FarmerListing
-        fields = ['farm_name', 'produce_type', 'quantity', 'price_kg', 'price_bundle', 'notes']
+        fields = ['farm_name', 'produce_type', 'quantity', 'price_kg', 'price_bundle', 'notes', 'image']
         widgets = {
             'notes': forms.Textarea(attrs={'placeholder': 'Tell buyers about your growing methods, expected delivery windows, or special offers'}),
         }

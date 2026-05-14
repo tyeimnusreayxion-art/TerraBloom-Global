@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard | TerraBloom Global{% endblock %}
+
+{% block content %}
+
+<section class="grid-section">
+  <h2>Dashboard</h2>
+  <p>Overview of all platform activity — orders, shipments, listings, and transactions.</p>
+</section>
+
+<section class="grid-section dashboard-stats">
+  <div class="stat-card card">
+    <span class="stat-number">{{ order_total }}</span>
+    <span class="stat-label">Total Orders</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ pending_orders }}</span>
+    <span class="stat-label">Pending Orders</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ shipment_total }}</span>
+    <span class="stat-label">In Transit</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ active_buyers }}</span>
+    <span class="stat-label">Active Buyers</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ listing_total }}</span>
+    <span class="stat-label">Farm Listings</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ transaction_total }}</span>
+    <span class="stat-label">Transactions</span>
+  </div>
+</section>
+
+<section class="grid-section">
+  <h2>Recent Orders</h2>
+  {% if orders %}
+  <table class="data-table">
+    <thead>
+      <tr><th>Buyer</th><th>Email</th><th>Item</th><th>Qty</th><th>Vehicle</th><th>Status</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td>{{ order.buyer_name }}</td>
+        <td>{{ order.buyer_email }}</td>
+        <td>{{ order.item }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.vehicle }}</td>
+        <td><span class="badge badge-{{ order.status }}">{{ order.get_status_display }}</span></td>
+        <td>{{ order.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty-state">No orders yet.</p>
+  {% endif %}
+</section>
+
+<section class="grid-section">
+  <h2>Recent Shipments</h2>
+  {% if shipments %}
+  <table class="data-table">
+    <thead>
+      <tr><th>Order</th><th>Origin</th><th>Destination</th><th>Vehicle</th><th>Status</th><th>Updated</th></tr>
+    </thead>
+    <tbody>
+      {% for s in shipments %}
+      <tr>
+        <td>{{ s.order }}</td>
+        <td>{{ s.origin }}</td>
+        <td>{{ s.destination }}</td>
+        <td>{{ s.vehicle }}</td>
+        <td><span class="badge badge-{{ s.status }}">{{ s.status }}</span></td>
+        <td>{{ s.updated_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty-state">No shipments yet.</p>
+  {% endif %}
+</section>
+
+<section class="grid-section">
+  <h2>Recent Farm Listings</h2>
+  {% if listings %}
+  <table class="data-table">
+    <thead>
+      <tr><th>Farm</th><th>Produce</th><th>Quantity</th><th>Per kg</th><th>Per bundle</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {% for l in listings %}
+      <tr>
+        <td>{{ l.farm_name }}</td>
+        <td>{{ l.produce_type }}</td>
+        <td>{{ l.quantity }}</td>
+        <td>{{ l.price_kg }}</td>
+        <td>{{ l.price_bundle }}</td>
+        <td>{{ l.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty-state">No listings yet.</p>
+  {% endif %}
+</section>
+
+<section class="grid-section">
+  <h2>Recent Transactions</h2>
+  {% if transactions %}
+  <table class="data-table">
+    <thead>
+      <tr><th>Reference</th><th>Order</th><th>Amount</th><th>Status</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      {% for t in transactions %}
+      <tr>
+        <td>{{ t.reference|default:"—" }}</td>
+        <td>{{ t.order }}</td>
+        <td>KES {{ t.amount }}</td>
+        <td><span class="badge badge-{{ t.status }}">{{ t.status }}</span></td>
+        <td>{{ t.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty-state">No transactions yet.</p>
+  {% endif %}
+</section>
+
+{% endblock %}

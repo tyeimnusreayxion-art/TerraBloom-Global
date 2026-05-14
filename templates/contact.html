@@ -1,18 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}Contact | TerraBloom Global{% endblock %}
 {% block content %}
+
 <section class="grid-section">
   <h2>Contact TerraBloom</h2>
-  <p>
-    Reach out to our team to learn more about the farm-to-table delivery network, partnerships, and how your produce can be featured in the market.
-  </p>
-  <div class="contact-card card">
-    <p>
-      For questions, requests, or help with orders, email <strong>support@terrabloom.global</strong> or call <strong>+254 700 555 230</strong>.
-    </p>
-    <p>
-      If you are a consumer, you can place an order directly through the consumer orders page.
-    </p>
+  <p>We are here to help — whether you need to arrange a delivery, track an order, or simply learn more about how TerraBloom Global works.</p>
+</section>
+
+<section class="grid-section contact-grid">
+
+  <div class="card contact-card">
+    <div class="contact-icon">🚚</div>
+    <h3>Delivery & Logistics</h3>
+    <p>For all delivery bookings, shipment tracking, vehicle requests, and logistics coordination.</p>
+    <ul class="contact-details">
+      <li>📧 <a href="mailto:terrabloom.logistics@gmail.com">terrabloom.logistics@gmail.com</a></li>
+      <li>📞 <a href="tel:+254717709091">+254 717 709 091</a></li>
+    </ul>
+    <a href="mailto:terrabloom.logistics@gmail.com" class="btn btn-primary">Email Logistics</a>
+  </div>
+
+  <div class="card contact-card">
+    <div class="contact-icon">💬</div>
+    <h3>General Enquiries</h3>
+    <p>For partnerships, farmer onboarding, consumer questions, feedback, or anything else.</p>
+    <ul class="contact-details">
+      <li>📧 <a href="mailto:terrabloom.global@gmail.com">terrabloom.global@gmail.com</a></li>
+      <li>📞 <a href="tel:+254717709091">+254 717 709 091</a></li>
+    </ul>
+    <a href="mailto:terrabloom.global@gmail.com" class="btn btn-secondary">Send a Message</a>
+  </div>
+
+</section>
+
+<section class="grid-section">
+  <div class="card">
+    <h3>Place an Order Directly</h3>
+    <p>Ready to order fresh produce? Skip the email and go straight to our order form.</p>
+    <a href="{% url 'consumer_order' %}" class="btn btn-primary">Place an Order</a>
   </div>
 </section>
+
 {% endblock %}

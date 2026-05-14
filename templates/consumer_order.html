@@ -1,22 +1,101 @@
 {% extends 'base.html' %}
-{% block title %}Consumer Order | TerraBloom Global{% endblock %}
+{% block title %}Consumer Orders | TerraBloom Global{% endblock %}
+
 {% block content %}
+
 <section class="grid-section">
-  <h2>Consumer order request</h2>
-  <p>
-    Fill in what you want, how much you need, and choose the vehicle best suited to carry your order. Our logistics team will follow up to confirm delivery.
-  </p>
-  <div class="contact-card card">
+  <h2>Place an Order</h2>
+  <p>Fill in the form below to request fresh produce delivery. Choose your vehicle based on the size of your order.</p>
+
+  <div class="card">
     <form method="post" novalidate>
       {% csrf_token %}
       {{ form.as_p }}
       <div class="submit-row">
-        <button class="btn btn-primary" type="submit">Submit request</button>
+        <button class="btn btn-primary" type="submit">Submit Order</button>
       </div>
       {% if form.errors %}
-      <p class="form-note">Please check the fields above.</p>
+      <p class="form-note">Please check the fields above and try again.</p>
       {% endif %}
     </form>
   </div>
 </section>
+
+<section class="grid-section dashboard-stats">
+  <div class="stat-card card">
+    <span class="stat-number">{{ order_total }}</span>
+    <span class="stat-label">Total Orders</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ active_buyers }}</span>
+    <span class="stat-label">Active Buyers</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ shipment_total }}</span>
+    <span class="stat-label">In Transit</span>
+  </div>
+  <div class="stat-card card">
+    <span class="stat-number">{{ transaction_total }}</span>
+    <span class="stat-label">Transactions</span>
+  </div>
+</section>
+
+{% if orders %}
+<section class="grid-section">
+  <h2>Recent Orders</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Buyer</th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Vehicle</th>
+        <th>Status</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td>{{ order.buyer_name }}</td>
+        <td>{{ order.item }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.vehicle }}</td>
+        <td><span class="badge badge-{{ order.status }}">{{ order.get_status_display }}</span></td>
+        <td>{{ order.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+{% if shipments %}
+<section class="grid-section">
+  <h2>Recent Shipments</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Order</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Vehicle</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for shipment in shipments %}
+      <tr>
+        <td>{{ shipment.order }}</td>
+        <td>{{ shipment.origin }}</td>
+        <td>{{ shipment.destination }}</td>
+        <td>{{ shipment.vehicle }}</td>
+        <td><span class="badge badge-{{ shipment.status }}">{{ shipment.status }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
 {% endblock %}

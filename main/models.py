@@ -8,6 +8,7 @@ class FarmerListing(models.Model):
     price_kg = models.CharField(max_length=80)
     price_bundle = models.CharField(max_length=80)
     notes = models.TextField(blank=True)
+    image = models.ImageField(upload_to='produce/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -21,7 +22,6 @@ class ConsumerOrder(models.Model):
         ('in_transit', 'In transit'),
         ('delivered', 'Delivered'),
     ]
-
     VEHICLE_CHOICES = [
         ('Motorbike express delivery', 'Motorbike express delivery'),
         ('Small cargo van', 'Small cargo van'),
@@ -29,7 +29,6 @@ class ConsumerOrder(models.Model):
         ('Large flatbed truck', 'Large flatbed truck'),
         ('Refrigerated truck', 'Refrigerated truck'),
     ]
-
     buyer_name = models.CharField(max_length=120)
     buyer_email = models.EmailField()
     item = models.CharField(max_length=120)

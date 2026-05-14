@@ -1,39 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}TerraBloom Global{% endblock %}
+{% block title %}TerraBloom Global — Farm-to-Table Delivery{% endblock %}
+
 {% block content %}
+
 <section class="hero">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p>Fresh from the fields, direct to your table.</p>
-      <h1>TerraBloom connects farmers, consumers, and logistics in one seamless story.</h1>
-      <p>
-        Discover how local growers share their harvest, consumers choose the best produce, and logistics teams bring each order to life.
-        Together, we build a healthier market and a stronger community.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="{% url 'farmer_upload' %}">Upload your produce</a>
-        <a class="btn btn-secondary" href="{% url 'consumer_order' %}">Order fresh produce</a>
-      </div>
-      <div class="page-links">
-        <a class="btn btn-link" href="{% url 'farmer_upload' %}">Farmer Upload</a>
-        <a class="btn btn-link" href="{% url 'consumer_order' %}">Consumer Orders</a>
-        <a class="btn btn-link" href="{% url 'dashboard' %}">Admin</a>
-        <a class="btn btn-link" href="{% url 'contact' %}">Contact</a>
-      </div>
+  <div class="hero-text">
+    <h1>Fresh from the Farm.<br>Straight to Your Table.</h1>
+    <p>TerraBloom Global connects farmers and consumers across Kenya with reliable logistics, fair pricing, and fresh produce delivered on your terms.</p>
+    <div class="hero-actions">
+      <a href="{% url 'consumer_order' %}" class="btn btn-primary">Place an Order</a>
+      <a href="{% url 'farmer_upload' %}" class="btn btn-secondary">List Your Produce</a>
     </div>
-    <div class="hero-visual">
-      <div class="story-card">
-        <h3>Our story</h3>
-        <p>
-          TerraBloom Global was born from a simple idea: to create a direct connection between farmers and consumers, cutting out the middlemen and bringing fresh produce straight from the fields to your table.
-          We started in Taveta, where local farmers grow vibrant crops that deserve to be seen and enjoyed across Kenya.
-        </p>
-      </div>
-      <div class="hero-image-card">
-        <img src="{% static 'images/kitchen fresh.jpg' %}" alt="Kitchen fresh" />
-      </div>
+  </div>
+  <div class="hero-image">
+    <img src="{% static 'images/kitchen-fresh.jpg' %}" alt="Fresh produce from farm" />
+  </div>
+</section>
+
+<section class="how-it-works grid-section">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step card">
+      <span class="step-number">1</span>
+      <h3>Farmers List Produce</h3>
+      <p>Farmers upload their available harvest — type, quantity, and price per kg or bundle.</p>
+    </div>
+    <div class="step card">
+      <span class="step-number">2</span>
+      <h3>Consumers Place Orders</h3>
+      <p>Buyers select the goods they need and choose their preferred vehicle for delivery.</p>
+    </div>
+    <div class="step card">
+      <span class="step-number">3</span>
+      <h3>We Handle Logistics</h3>
+      <p>From motorbike express to refrigerated trucks — we match the right vehicle to every load.</p>
     </div>
   </div>
 </section>
+
+<section class="produce-section grid-section">
+  <div class="produce-images">
+    <img src="{% static 'images/fresh-produce.jpg' %}" alt="Fresh produce" />
+    <img src="{% static 'images/organic-produce.jpg' %}" alt="Organic produce" />
+  </div>
+  <div class="produce-text">
+    <h2>Quality You Can Trust</h2>
+    <p>Every listing on TerraBloom Global comes directly from verified farms. No middlemen inflating prices — just honest produce at fair rates.</p>
+    <a href="{% url 'farmer_upload' %}" class="btn btn-secondary">Add Your Listing</a>
+  </div>
+</section>
+
+{% if listings %}
+<section class="listings-section grid-section">
+  <h2>Recent Farm Listings</h2>
+  <div class="listings-grid">
+    {% for listing in listings %}
+    <div class="card listing-card">
+      <h3>{{ listing.produce_type }}</h3>
+      <p class="farm-name">🌾 {{ listing.farm_name }}</p>
+      <p>Quantity: {{ listing.quantity }}</p>
+      <p>Per kg: <strong>{{ listing.price_kg }}</strong> &nbsp;|&nbsp; Per bundle: <strong>{{ listing.price_bundle }}</strong></p>
+      {% if listing.notes %}<p class="notes">{{ listing.notes }}</p>{% endif %}
+      <a href="{% url 'consumer_order' %}" class="btn btn-primary">Order Now</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="transport-section grid-section">
+  <div class="transport-text">
+    <h2>Flexible Delivery Options</h2>
+    <p>Choose from motorbike express, cargo vans, medium trucks, large flatbeds, or refrigerated trucks — whatever your load demands.</p>
+    <a href="{% url 'consumer_order' %}" class="btn btn-primary">Order Delivery</a>
+  </div>
+  <div class="transport-images">
+    <img src="{% static 'images/transport-lorry.jpg' %}" alt="Transport lorry" />
+    <img src="{% static 'images/transport-fleet.jpg' %}" alt="Transport fleet" />
+  </div>
+</section>
+
 {% endblock %}
