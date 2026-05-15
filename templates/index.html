@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}TerraBloom Global{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p>Fresh from the fields, direct to your table.</p>
+      <h1>TerraBloom connects farmers, consumers, and logistics in one seamless story.</h1>
+      <p>
+        Discover how local growers share their harvest, consumers choose the best produce, and logistics teams bring each order to life.
+        Together, we build a healthier market and a stronger community.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{% url 'farmer_upload' %}">Upload your produce</a>
+        <a class="btn btn-secondary" href="{% url 'consumer_order' %}">Order fresh produce</a>
+      </div>
+      <div class="page-links">
+        <a class="btn btn-link" href="{% url 'farmer_upload' %}">Farmer Upload</a>
+        <a class="btn btn-link" href="{% url 'consumer_order' %}">Consumer Orders</a>
+        <a class="btn btn-link" href="{% url 'dashboard' %}">Admin</a>
+        <a class="btn btn-link" href="{% url 'contact' %}">Contact</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="story-card">
+        <h3>Our story</h3>
+        <p>
+          TerraBloom Global was born from a simple idea: to create a direct connection between farmers and consumers, cutting out the middlemen and bringing fresh produce straight from the fields to your table.
+          We started in Taveta, where local farmers grow vibrant crops that deserve to be seen and enjoyed across Kenya.
+        </p>
+      </div>
+      <div class="hero-image-card">
+        <img src="{% static 'images/kitchen fresh.jpg' %}" alt="Kitchen fresh" />
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
