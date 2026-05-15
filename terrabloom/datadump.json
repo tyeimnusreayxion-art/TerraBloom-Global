@@ -1,0 +1,19 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$VUy6lWpdHjhvd8hmKPK8PA$x39dRpalNnH4dJ/mxYTZRqDCKDO6yOMldM6XNXsuvxg=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "Reayxion",
+        "first_name": "",
+        "last_name": "",
+        "email": "reayxiontyeimnustuwe@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-05-06T09:49:31.210Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

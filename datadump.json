@@ -1,0 +1,99 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$VUy6lWpdHjhvd8hmKPK8PA$x39dRpalNnH4dJ/mxYTZRqDCKDO6yOMldM6XNXsuvxg=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "Reayxion",
+        "first_name": "",
+        "last_name": "",
+        "email": "reayxiontyeimnustuwe@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-05-06T09:49:31.210Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$c07zqqneD0fVAejyaV1pW7$yZNTDGAZUy2xEcgHgQpf5WZbGiG1EKqWAggKBgMLvp0=",
+        "last_login": "2026-05-14T09:54:03.189Z",
+        "is_superuser": true,
+        "username": "Tyeimnus",
+        "first_name": "",
+        "last_name": "",
+        "email": "tyeimnusreayxion@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-05-13T09:38:15.094Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "rajt65kvnw81vn6mko7bt21s2snae1ou",
+    "fields": {
+        "session_data": ".eJxVjMsKwyAQAP9lz0VU4ivH3vsN4q5rTVsUYnIq_fcSyKG9zgzzhpj2rcZ98BqXDDNouPwyTPTkdoj8SO3eBfW2rQuKIxGnHeLWM7-uZ_s3qGlUmMEhFpQ-KcPKkJoUa87O2lCkpwlDcWTRWWPRKGmLN6glE5vgHRfyCT5f71A4Rg:1wNSlX:2Fd7Wanm35RWmIzNVQWIvUFbFOYSSB5hBc9EJ_k2fXI",
+        "expire_date": "2026-05-28T09:54:03.255Z"
+    }
+},
+{
+    "model": "main.contactmessage",
+    "pk": 1,
+    "fields": {
+        "name": "Ibrahim",
+        "email": "ibrahimngwaruto3@gmail.com",
+        "topic": "Logistics support",
+        "message": "Thankyou",
+        "sent_at": "2026-05-15T11:01:13.256Z"
+    }
+},
+{
+    "model": "main.contactmessage",
+    "pk": 2,
+    "fields": {
+        "name": "Ibrahim",
+        "email": "ibrahimngwaruto3@gmail.com",
+        "topic": "Logistics support",
+        "message": "Thankyou",
+        "sent_at": "2026-05-15T11:01:22.677Z"
+    }
+},
+{
+    "model": "main.contactmessage",
+    "pk": 3,
+    "fields": {
+        "name": "Ibrahim",
+        "email": "ibrahimngwaruto3@gmail.com",
+        "topic": "Logistics support",
+        "message": "Thankyou",
+        "sent_at": "2026-05-15T11:01:23.345Z"
+    }
+},
+{
+    "model": "main.contactmessage",
+    "pk": 4,
+    "fields": {
+        "name": "Ibrahim",
+        "email": "ibrahimngwaruto3@gmail.com",
+        "topic": "Logistics support",
+        "message": "Thankyou",
+        "sent_at": "2026-05-15T11:13:47.821Z"
+    }
+},
+{
+    "model": "main.contactmessage",
+    "pk": 5,
+    "fields": {
+        "name": "ibrahim",
+        "email": "ibrahimngwaruto3@gmail.com",
+        "topic": "Logistics support",
+        "message": "Thankyou",
+        "sent_at": "2026-05-15T11:26:54.462Z"
+    }
+}
+]

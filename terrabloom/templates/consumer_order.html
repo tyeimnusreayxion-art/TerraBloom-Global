@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Consumer Order | TerraBloom Global{% endblock %}
+{% block content %}
+<section class="grid-section">
+  <h2>Consumer order request</h2>
+  <p>
+    Fill in what you want, how much you need, and choose the vehicle best suited to carry your order. Our logistics team will follow up to confirm delivery.
+  </p>
+  <div class="contact-card card">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="submit-row">
+        <button class="btn btn-primary" type="submit">Submit request</button>
+      </div>
+      {% if form.errors %}
+      <p class="form-note">Please check the fields above.</p>
+      {% endif %}
+    </form>
+  </div>
+</section>
+{% endblock %}

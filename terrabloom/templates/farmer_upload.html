@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Farmer Upload | TerraBloom Global{% endblock %}
+{% block content %}
+<section class="grid-section">
+  <h2>Farmer Upload Form</h2>
+  <p>
+    Tell the TerraBloom community about your current harvest. Upload your produce photo, describe the type, share how much is available, and set prices both per kilogram and per bundle.
+  </p>
+  <div class="card">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="submit-row">
+        <button class="btn btn-primary" type="submit">Submit listing</button>
+      </div>
+      {% if form.errors %}
+      <p class="form-note">Please check the fields above.</p>
+      {% endif %}
+    </form>
+  </div>
+</section>
+{% endblock %}

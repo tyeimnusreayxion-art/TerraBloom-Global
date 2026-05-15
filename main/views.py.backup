@@ -1,0 +1,42 @@
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import ContactMessage
+
+
+def contact(request):
+    success = False
+
+    if request.method == 'POST':
+        name    = request.POST.get('name', '').strip()
+        email   = request.POST.get('email', '').strip()
+        topic   = request.POST.get('topic', '').strip()
+        message = request.POST.get('message', '').strip()
+
+        # Save to database -- visible in /admin
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            topic=topic,
+            message=message,
+        )
+
+        # Send email to your inbox
+        send_mail(
+            subject=f"[TerraBloom] New message: {topic}",
+            message=(
+                f"New contact form submission.\n\n"
+                f"Name:    {name}\n"
+                f"Email:   {email}\n"
+                f"Topic:   {topic}\n\n"
+                f"Message:\n{message}\n\n"
+                f"---\nSent via TerraBloom Contact Form"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_RECIPIENT_EMAIL],
+            fail_silently=False,
+        )
+
+        success = True
+
+    return render(request, 'contact.html', {'success': success})
