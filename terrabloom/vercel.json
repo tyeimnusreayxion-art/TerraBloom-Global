@@ -7,9 +7,9 @@
       "config": { "distDir": "staticfiles_build" }
     },
     {
-      "src": "your_project_name/wsgi.py",
+      "src": "terrabloom/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+      "config": { "maxLambdaSize": "500mb", "runtime": "python3.14" }
     }
   ],
   "routes": [
@@ -19,7 +19,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "your_project_name/wsgi.py"
+      "dest": "terrabloom/wsgi.py"
     }
   ]
 }
+
